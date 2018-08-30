@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Greeter from './js/greeter';
+import Main from './js/main';
+import './css/reset.css';
 import './css/styles.css';
+import './css/xui.css';
 
-render(<Greeter/> , document.getElementById('root'));
+render(<Main/> , document.getElementById('root'));
