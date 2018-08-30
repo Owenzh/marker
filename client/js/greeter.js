@@ -4,7 +4,7 @@ class Greeter extends Component{
   render() {
     return (
       <div>
-        hi friends
+        hi friends,here you are {this.props.name}.
       </div>
     );
   }

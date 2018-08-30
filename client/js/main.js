@@ -6,7 +6,7 @@ class Main extends Component{
     render(){
         return (
             <div>
-                <Greeter />
+                <Greeter name='marker app'/>
                 <Demo />
             </div>
         );
