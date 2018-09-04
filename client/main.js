@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Main from './js/main';
+import Index from './js/index';
 import './css/reset.css';
 import './css/styles.css';
 import './css/xui.css';
 
-render(<Main/> , document.getElementById('root'));
+render(<Index/> , document.getElementById('root'));

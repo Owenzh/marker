@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = {
     mode: 'development',
     devtool: 'eval-source-map',
-    entry: './client/index.js',
+    entry: './client/main.js',
     output: {
         filename: 'bundle.js',
         // filename: 'bundle-[hash:8].js',

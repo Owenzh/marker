@@ -1,4 +1,110 @@
+/* 字体和字号 */
 * {
     font-family: 'Arial, Helvetica, sans-serif';
     font-size: 16px;
+}
+
+/* 12等份布局 */
+.xu-grid {
+    display: block;
+    width: 100%;
+}
+
+.xu-grid-1 {
+    display: inline-block;
+    width: 8.3333333%;
+}
+
+.xu-grid-2 {
+    display: inline-block;
+    width: 16.6666667%;
+}
+
+.xu-grid-3 {
+    display: inline-block;
+    width: 25%;
+}
+
+.xu-grid-4 {
+    display: inline-block;
+    width: 33.3333333%;
+}
+
+.xu-grid-5 {
+    display: inline-block;
+    width: 41.6666667%;
+}
+
+.xu-grid-6 {
+    display: inline-block;
+    width: 50%;
+}
+
+.xu-grid-7 {
+    width: 58.3333333%;
+}
+
+.xu-grid-8 {
+    display: inline-block;
+    width: 66.6666667%;
+}
+
+.xu-grid-9 {
+    display: inline-block;
+    width: 75%;
+}
+
+.xu-grid-10 {
+    display: inline-block;
+    width: 83.3333333%;
+}
+
+.xu-grid-11 {
+    display: inline-block;
+    width: 91.6666667%;
+}
+
+.xu-grid-12 {
+    display: inline-block;
+    width: 100%;
+}
+
+/* 导航 */
+ul.xu-nav>li {
+    display: inline-block;
+}
+
+/* logo */
+.xu-logo {
+    height: 20px;
+    width: 80px
+}
+
+/* 遮罩 */
+.xu-cover {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+    height: 100%;
+    filter: alpha(opacity=60);
+    /*设置透明度为60%*/
+    opacity: 0.6;
+    /*非IE浏览器下设置透明度为60%*/
+    display: none;
+    z-Index: 999;
+}
+/* 弹出窗 */
+.xu-popup {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    display: none;
+    cursor: pointer;
+    z-Index: 9999;
 }
