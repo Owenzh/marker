@@ -96,15 +96,203 @@ ul.xu-nav>li {
     display: none;
     z-Index: 999;
 }
+
 /* 弹出窗 */
 .xu-popup {
-    position: absolute;
-    width: 500px;
-    height: 300px;
+    position: fixed;
+    min-width: 500px;
+    min-height: 300px;
     top: 50%;
     left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     background-color: #fff;
     display: none;
-    cursor: pointer;
+    
     z-Index: 9999;
+}
+
+.xu-popup-show {
+    animation: move-in 1s ease-in;
+    -webkit-animation: move-in 1s ease-in;
+    /* Safari and Chrome */
+}
+
+.xu-popup-header {
+    width: 100%;
+    min-height: 20px;
+    background-color: #11aadd;
+}
+
+.xu-popup-header>span {
+    display: block;
+    font-size: 50%;
+    margin-top: 5px;
+    margin-right: 5px;
+    /* color: #f10c00; */
+    float: right;
+    cursor: pointer;
+    -webkit-transition: -webkit-transform .8s;
+    /* For Safari 3.1 to 6.0 */
+    transition: transform .8s;
+}
+
+.xu-popup-header>span::after {
+    clear: both;
+}
+
+.xu-popup-header>span:hover {
+    /* color: #f10c00; */
+    transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    /* IE 9 */
+    -webkit-transform: rotate(360deg);
+    /* Safari and Chrome */
+}
+
+.xu-round-edge {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.xu-round-edge-lr {
+    -webkit-border-radius: 25px 10px 0 0;
+    -moz-border-radius: 25px 10px 0 0;
+    border-radius: 25px 10px 0 0;
+}
+
+@keyframes move-in {
+    0% {
+        opacity: 0.0;
+        top: 5%;
+    }
+
+    5% {
+        opacity: 0.1;
+        top: 7%;
+    }
+
+    10% {
+        opacity: 0.1;
+        top: 12%;
+    }
+
+    20% {
+        opacity: 0.15;
+        top: 15%;
+    }
+
+    25% {
+        opacity: 0.25;
+        top: 18%;
+    }
+
+    30% {
+        opacity: 0.25;
+        top: 24%;
+    }
+
+    50% {
+        opacity: 0.5;
+        top: 40%;
+    }
+
+    60% {
+        opacity: 0.5;
+        top: 50%;
+    }
+
+    64% {
+        opacity: 0.6;
+        top: 40%;
+    }
+
+    70% {
+        opacity: 0.6;
+        top: 43%;
+    }
+
+    75% {
+        opacity: 0.75;
+        top: 45%;
+    }
+
+    84% {
+        opacity: 0.8;
+        top: 48%;
+    }
+
+    100% {
+        opacity: 1.0;
+        top: 49%;
+    }
+}
+
+@-webkit-keyframes move-in {
+
+    /* Safari and Chrome */
+    0% {
+        opacity: 0.0;
+        top: 5%;
+    }
+
+    5% {
+        opacity: 0.1;
+        top: 7%;
+    }
+
+    10% {
+        opacity: 0.1;
+        top: 12%;
+    }
+
+    20% {
+        opacity: 0.15;
+        top: 15%;
+    }
+
+    25% {
+        opacity: 0.25;
+        top: 18%;
+    }
+
+    30% {
+        opacity: 0.25;
+        top: 24%;
+    }
+
+    50% {
+        opacity: 0.5;
+        top: 40%;
+    }
+
+    60% {
+        opacity: 0.5;
+        top: 50%;
+    }
+
+    64% {
+        opacity: 0.6;
+        top: 40%;
+    }
+
+    70% {
+        opacity: 0.6;
+        top: 43%;
+    }
+
+    75% {
+        opacity: 0.75;
+        top: 45%;
+    }
+
+    84% {
+        opacity: 0.8;
+        top: 48%;
+    }
+
+    100% {
+        opacity: 1.0;
+        top: 49%;
+    }
 }
