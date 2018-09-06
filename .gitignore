@@ -1,3 +1,4 @@
 node_modules/*
 client/dist/*
 npm-debug*
+package-lock.json
