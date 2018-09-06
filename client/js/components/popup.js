@@ -7,7 +7,7 @@ class Popup extends Component{
         this.popupid = 'popup-'+new Date().valueOf();
         this.coverdiv = null;
         this.popupdiv = null;
-        this.closePopup = this.close.bind(this);
+        this.closePopup = this._close.bind(this);
         console.log(this.popupid);
     }
     componentWillMount() {
@@ -19,7 +19,7 @@ class Popup extends Component{
     componentWillReceiveProps(newProps) {
           console.log('Component WILL RECEIVE PROPS!');
           if(newProps.show){
-            this.show();
+            this._show();
           }
     }
     shouldComponentUpdate(newProps, newState) {
@@ -34,12 +34,16 @@ class Popup extends Component{
     componentWillUnmount() {
         //    console.log('Component WILL UNMOUNT!')
     }
-    close() {
+    _close() {
         this.coverdiv.setAttribute('style', 'display:none');
         this.popupdiv.setAttribute('style', 'display:none');
+        this.show = false;
+        console.log('close popup '+ this.popupid);
     }
-    show() {
+    _show() {
+        console.log(this.popupid);
         let popupContainer = document.getElementById(this.popupid);
+        console.log(popupContainer);
         this.coverdiv = popupContainer.getElementsByClassName('xu-cover')[0];
         this.popupdiv = popupContainer.getElementsByClassName('xu-popup')[0];
         this.coverdiv.setAttribute('style', 'display:block');
