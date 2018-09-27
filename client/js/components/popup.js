@@ -32,12 +32,13 @@ class Popup extends Component{
         //   console.log('Component DID UPDATE!')
     }
     componentWillUnmount() {
-        //    console.log('Component WILL UNMOUNT!')
+           console.log('Component WILL UNMOUNT!.....');
     }
     _close() {
         this.coverdiv.setAttribute('style', 'display:none');
         this.popupdiv.setAttribute('style', 'display:none');
         this.show = false;
+        // ReactDom.unmountComponentAtNode(document.getElementById(this.popupid));
         console.log('close popup '+ this.popupid);
     }
     _show() {
