@@ -5,7 +5,7 @@ class Footer extends Component{
     return (
       <div>
          <React.Fragment>
-         Footer
+      
          </React.Fragment>
       </div>
     );

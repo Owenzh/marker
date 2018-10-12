@@ -37,9 +37,15 @@ class Popup extends Component{
     _close() {
         this.coverdiv.setAttribute('style', 'display:none');
         this.popupdiv.setAttribute('style', 'display:none');
-        this.show = false;
+        this._reset();
         // ReactDom.unmountComponentAtNode(document.getElementById(this.popupid));
         console.log('close popup '+ this.popupid);
+    }
+    _reset() {
+        this.show = false;
+        console.log(this);
+        this.props.content.title = "";
+        this.props.content.body = "";
     }
     _show() {
         console.log(this.popupid);
@@ -62,10 +68,13 @@ class Popup extends Component{
                     </div>
                     <div className="xu-popup xu-round-edge">
                         <div className="xu-popup-header xu-round-edge-lr">
+                            <div className="title">
+                                {this.props.content.title}
+                            </div>
                             <span onClick={this.closePopup}>[x]</span>
                         </div>
                         <div className="xu-popup-content">
-                            {this.props.content}
+                            {this.props.content.body}
                         </div>
                         <div className="xu-popup-footer">
                         </div>

@@ -5,7 +5,7 @@ class Body extends Component{
     return (
       <div>
          <React.Fragment>
-         Body
+         
          </React.Fragment>
       </div>
     );
