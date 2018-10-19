@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
 
-class Body extends Component{
+class Home extends Component{
   render() {
     return (
       <div>
          <React.Fragment>
-         
+          Home page
          </React.Fragment>
       </div>
     );
   }
 }
 
-export default Body;
+export default Home;
