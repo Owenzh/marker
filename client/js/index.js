@@ -1,11 +1,11 @@
 import React,{Component} from 'react';
-import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 
-import Home from './layout/home';
+import Home from './components/home';
 import Category from './components/category';
 
-const CateItem = ({text,toLink}) => (
-    <Link to={toLink} replace={true}>{text}</Link> //add replace atrr to hash history cannot push state; it is ignored
+const CateItem = ({text,toLink,selectedClass}) => (
+    <NavLink exact replace to={toLink} activeClassName={selectedClass}>{text}</NavLink> //add replace atrr to hash history cannot push state; it is ignored
 );
 const RouteItem = ({key,path,pathName}) => (
     <Route exact key={key} path={path} render={props=><Category {...props} path_name={pathName}/>}/>
@@ -43,8 +43,8 @@ class Index extends Component{
     render(){
         let cate = this.state.category_map;
         const listItems = cate.map((cate) =>
-          <li key={cate.id} style={{padding: "10px"}}> 
-            <CateItem text={cate.text} toLink={"/category/"+cate.name}/>
+          <li key={cate.id}> 
+            <CateItem text={cate.text} toLink={"/category/"+cate.name} selectedClass={"nav_selected"}/>
           </li>  
         );
         //Init the route for special link
@@ -53,14 +53,20 @@ class Index extends Component{
         );
         return (
             <Router>
-                <div>
-                    <ul>
+                <div className="index xu-grid">
+                    <ul className="sidebar xu-grid-1">
+                        <li>
+                            <NavLink exact replace to='/' activeClassName="nav_selected">Home</NavLink>
+                        </li>
                         {listItems}
                     </ul>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        {routeItems}
-                    </Switch>
+                    
+                    <div className="content xu-grid-10">
+                        <Switch>
+                            <Route exact path="/" component={Home}/>
+                            {routeItems}
+                        </Switch>
+                    </div>
                 </div>
             </Router>
         );

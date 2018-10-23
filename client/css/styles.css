@@ -2,3 +2,33 @@ div {
     /* background-color: #880;  */
     /* background-image: url('../imgs/logo.png') */
 }
+
+div.index {
+    position: absolute;
+    height: 100%;
+}
+
+div.content {
+    position: absolute;
+    height: 100%;
+}
+
+ul.sidebar {
+    position: relative;
+    height: 100%;
+}
+
+ul.sidebar>li {
+    padding: 5px 0px;
+}
+
+ul.sidebar a {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.nav_selected {
+    color: #fff;
+    background-color: cadetblue;
+}

@@ -24,9 +24,6 @@ export default class Category extends Component {
     componentWillMount() {
         this.checkUpdate();
     }
-    // shouldComponentUpdate(){
-    //     return true;
-    // }
     render(){
         return (
             <React.Fragment>
