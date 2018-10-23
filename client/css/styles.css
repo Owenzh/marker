@@ -22,6 +22,11 @@ ul.sidebar>li {
     padding: 5px 0px;
 }
 
+ul.sidebar>li:first-child {
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+
 ul.sidebar a {
     display: inline-block;
     width: 100%;
