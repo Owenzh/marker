@@ -7,13 +7,9 @@ import Category from './components/category';
 const CateItem = ({text,toLink,selectedClass}) => (
     <NavLink exact replace to={toLink} activeClassName={selectedClass}>{text}</NavLink> //add replace atrr to hash history cannot push state; it is ignored
 );
-const RouteItem = ({key,path,pathName}) => {
-    if(pathName == "home") {
-        return (<Route exact path="/" component={Home}/>);
-    } else {    
-        return (<Route exact key={key} path={path} render={props=><Category {...props} path_name={pathName}/>}/>);
-    }        
-};
+const RouteItem = ({key,path,pathName}) => (
+    <Route exact key={key} path={path} render={props=><Category {...props} path_name={pathName}/>}/>
+);
 
 class Index extends Component{
     constructor(props) {
@@ -61,7 +57,7 @@ class Index extends Component{
           </li>  
         );
         //Init the route for special link
-        const routeItems = cate.map((cate)=>
+        const routeItems = cate.slice(1).map((cate)=>
             <RouteItem key={cate.id} path={cate.toLink} pathName={cate.name}/>
         );
         return (
@@ -73,6 +69,7 @@ class Index extends Component{
                     
                     <div className="content xu-grid-10">
                         <Switch>
+                            <Route exact path="/" component={Home}/>
                             {routeItems}
                         </Switch>
                     </div>
