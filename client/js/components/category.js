@@ -51,8 +51,9 @@ export default class Category extends Component {
         });
     }
     componentDidMount() {
+        let type = this.props.path_name;
         $.ajax({
-            url: "/api/product/hot",
+            url: "/api/product/"+type,
             success: ( result ) => {
                 console.log(result);
                 this.checkUpdate(result);
