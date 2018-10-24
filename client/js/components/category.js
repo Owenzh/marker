@@ -10,7 +10,7 @@ const ProdBtns = ({prod})=>(
 const ProdItem = ({prod}) => (
     <div className="prod_item xu-grid-5">
         <div className="prod_short_name" onClick={ ()=>detail(prod) }>{prod.prod_short}</div>
-        {prod.prod_price}<br/>
+        {prod.prod_price} {prod.price_unit}<br/>
         {prod.prod_type}<br/>
         <ProdBtns prod={prod}/>
     </div>
