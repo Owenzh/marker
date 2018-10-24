@@ -19,6 +19,7 @@
   "author": "owenzh",
   "license": "MIT",
   "dependencies": {
+    "jquery": "^3.3.1",
     "koa": "^2.5.2",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",

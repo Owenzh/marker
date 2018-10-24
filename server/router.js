@@ -11,9 +11,10 @@ router.get('/',  (ctx, next) => {
     // await next();
 });
 
-router.get('/abc',  (ctx, next) => {
+router.get('/test',  (ctx, next) => {
     // ctx.router available
-    ctx.body = 'abc'
+    ctx.response.type='text';
+    ctx.response.body = 'this is test text from server.';
     // await next();
 });
 

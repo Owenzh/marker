@@ -37,3 +37,43 @@ ul.sidebar a {
     color: #fff;
     background-color: cadetblue;
 }
+
+div.prod_header {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+div.prod_item {
+    border: 1px solid #332211;
+    padding: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    line-height: 1.8em;
+}
+
+div.prod_short_name {
+    font-size: 1.2em;
+}
+
+div.prod_short_name:hover {
+    cursor: pointer;
+    color: rgb(55, 26, 219);
+}
+
+div.prod_btns {
+    position: relative;
+    float: right;
+}
+
+div.prod_btns button {
+    margin-right: 10px;
+}
+
+div.prod_btns button:hover {
+    cursor: pointer;
+}
+
+div.prod_btns::after {
+    clear: both;
+}

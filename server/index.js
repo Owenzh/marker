@@ -1,5 +1,6 @@
 const Koa = require('koa');
 let router = require('./router');
+let api = require('./api');
 const path = require('path');
 const serve = require('koa-static');
 const app = new Koa();
@@ -17,6 +18,7 @@ const static = serve(staticPath);
 app.use(static);
 app.use(logger);
 app.use(router.routes());
+app.use(api.routes());
 app.on('error', error);
 
 app.listen(8000);
