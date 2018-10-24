@@ -64,7 +64,7 @@ const prod = {
         price_unit: 'RMB',
         prod_type: 'man'
     }, {
-        id: 38695,
+        id: 38678,
         prod_name: 'Goralon 新款男士外套秋冬装休闲连帽夹克外套韩版青年男装上衣百搭贴布夹克衫男外套',
         prod_short: 'Goralon 新款男士外套',
         prod_price: 168.00,
