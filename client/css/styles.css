@@ -54,6 +54,7 @@ div.prod_item {
 
 div.prod_short_name {
     font-size: 1.2em;
+    height: 70px;
 }
 
 div.prod_short_name:hover {

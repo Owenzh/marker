@@ -61,7 +61,7 @@ export default class Category extends Component {
         });
     }
     render(){
-        let prod_items = this.state.prods&&this.state.prods.map((prd)=>
+        let prod_items = this.state.prods && this.state.prods.map((prd)=>
             <React.Fragment key={prd.id}>
                 <ProdItem prod={prd} />
             </React.Fragment>
