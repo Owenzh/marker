@@ -8,7 +8,7 @@ const CateItem = ({text,toLink,selectedClass}) => (
     <NavLink exact replace to={toLink} activeClassName={selectedClass}>{text}</NavLink> //add replace atrr to hash history cannot push state; it is ignored
 );
 const RouteItem = ({key,path,pathName}) => (
-    <Route exact key={key} path={path} render={props=><Category {...props} path_name={pathName}/>}/>
+    <Route exact key={key} path={path} render={(props)=><Category {...props} path_name = {pathName} />} />
 );
 
 class Index extends Component{
