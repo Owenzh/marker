@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 
 import Home from './components/home';
 import Category from './components/category';
+import Product from './components/product';
 
 const CateItem = ({text,toLink,selectedClass}) => (
     <NavLink exact replace to={toLink} activeClassName={selectedClass}>{text}</NavLink> //add replace atrr to hash history cannot push state; it is ignored
@@ -71,6 +72,7 @@ class Index extends Component{
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             {routeItems}
+                            <Route exact path="/product/:prodId" component={Product}/>
                         </Switch>
                     </div>
                 </div>

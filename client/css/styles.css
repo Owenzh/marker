@@ -78,3 +78,26 @@ div.prod_btns button:hover {
 div.prod_btns::after {
     clear: both;
 }
+
+div.prod_info {
+    padding: 10px;
+    line-height: 1.5em;
+    font-size: 18px;
+}
+
+div.prod_info p:nth-child(1) {
+    color: rgb(23, 23, 207);
+}
+
+div.prod_info p:nth-child(2) {
+    font-size: 0.8em;
+}
+
+div.prod_info p:nth-child(3) {
+    font-size: 1em;
+    color: #be2424;
+}
+
+div.prod_info p:nth-child(4) {
+    font-size: 0.8em;
+}

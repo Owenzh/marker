@@ -1,4 +1,5 @@
 import  React,{Component} from 'react';
+import { createHashHistory } from "history";
 import $ from "jquery";
 
 const ProdBtns = ({prod})=>(
@@ -15,13 +16,14 @@ const ProdItem = ({prod}) => (
         <ProdBtns prod={prod}/>
     </div>
 );
+const history = createHashHistory();
 const buy = (p) => {
     console.log(p);
     console.log('buy action...');
 }
 const detail = (p) => {
-    console.log(p);
-    console.log('detail action...');
+    let prod_path = '/product/'+p.id;
+    history.push(prod_path);
 }
 const collect = (p) => {
     console.log(p);
