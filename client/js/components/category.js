@@ -1,6 +1,7 @@
 import  React,{Component} from 'react';
-import { createHashHistory } from "history";
 import $ from "jquery";
+
+import { registerLocationChangeListener, goToPath } from '../shared/ActionForNav';
 
 const ProdBtns = ({prod})=>(
     <div className="prod_btns">
@@ -10,38 +11,17 @@ const ProdBtns = ({prod})=>(
 );
 const ProdItem = ({prod, url}) => (
     <div className="prod_item xu-grid-5">
-        <div className="prod_short_name" onClick={ ()=>detail(prod,url) }>{prod.prod_short}</div>
+        <div className="prod_short_name" onClick={ ()=>{ goToPath('/product/' + prod.id,url); registerLocationChangeListener(); } }>{prod.prod_short}</div>
         {prod.prod_price} {prod.price_unit}<br/>
         {prod.prod_type}<br/>
         <ProdBtns prod={prod}/>
     </div>
 );
-const history = createHashHistory();
 const buy = (p) => {
     console.log(p);
     console.log('buy action...');
 }
-const detail = (p,url) => {
-    let prod_path = '/product/'+p.id;
-    console.log(url);
-    // warning: hash history can not set state.
-    history.push(prod_path, {preUrl: url});
-    console.log(history);
-    history.listen((location , action) => {
-        const resetNavHighLight = (pathname)=> {
-            if(pathname.indexOf('category') != -1) {
-                //set category selected and unselected
-                let pathstr = pathname.split('/')[2];
-                $(`ul.sidebar a`).removeClass('nav_selected');
-                $(`ul.sidebar a[href*=${pathstr}]`).addClass('nav_selected');
-            } else {
-                // set home page
-                $(`ul.sidebar a[href*=category]`).removeClass('nav_selected');
-            }
-        };
-        resetNavHighLight(location.pathname);
-    });
-}
+
 const collect = (p) => {
     console.log(p);
     console.log('collect action...');
@@ -49,7 +29,6 @@ const collect = (p) => {
 export default class Category extends Component {
     constructor(props){
         super(props);
-        console.log(props);
         this.state = {content:null, prods: null};
  
     }
@@ -66,7 +45,7 @@ export default class Category extends Component {
             content: contentMap[item],
             prods: data
         }, () => {
-            console.log('set content already.');
+            // console.log('set content already.');
         });
     }
     componentDidMount() {

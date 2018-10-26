@@ -47,7 +47,7 @@ class Index extends Component{
         this.setState({
             category_map: category
         }, () => {
-            console.log('set category already.');
+            // console.log('set category already.');
         });
     } 
     render(){
