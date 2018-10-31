@@ -65,7 +65,7 @@ class Index extends Component{
         const routeItems = cate.slice(1).map((cate)=>
             <RouteItem key={cate.id} path={cate.toLink} pathName={cate.name}/>
         );
-        const popProp = {title:'登陆', body: 'This is win body.'};
+        const popProp = {title:'登陆', body: '<h1>登陆</h1><p>用户名:<input type="text" id="name" name="name"/></p><p>密码 :<input type="password" id="pwd" name="pwd"/></p>'};
         return (
             <Router>
                 <div className="index xu-grid">

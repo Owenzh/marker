@@ -74,7 +74,7 @@ class Popup extends Component{
                             <span onClick={this.closePopup}>[x]</span>
                         </div>
                         <div className="xu-popup-content">
-                            {this.props.content.body}
+                            <div dangerouslySetInnerHTML={{ __html: this.props.content.body }}></div>
                         </div>
                         <div className="xu-popup-footer">
                         </div>
