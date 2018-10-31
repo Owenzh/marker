@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-// import ReactDom from 'react-dom'
+import ReactDom from 'react-dom'
 
 class Popup extends Component{
     constructor(props) {
@@ -17,7 +17,7 @@ class Popup extends Component{
         //  console.log('Component DID MOUNT!')
     }
     componentWillReceiveProps(newProps) {
-          console.log('Component WILL RECEIVE PROPS!');
+        //   console.log('Component WILL RECEIVE PROPS!');
           if(newProps.show){
             this._show();
           }
@@ -29,7 +29,10 @@ class Popup extends Component{
         //   console.log('Component WILL UPDATE!');
     }
     componentDidUpdate(prevProps, prevState) {
-        //   console.log('Component DID UPDATE!')
+        //   console.log('Component DID UPDATE!');
+        //   console.log(prevProps);
+        //   console.log(this.props);
+          this.props.init();
     }
     componentWillUnmount() {
            console.log('Component WILL UNMOUNT!.....');
@@ -38,19 +41,20 @@ class Popup extends Component{
         this.coverdiv.setAttribute('style', 'display:none');
         this.popupdiv.setAttribute('style', 'display:none');
         this._reset();
-        // ReactDom.unmountComponentAtNode(document.getElementById(this.popupid));
         console.log('close popup '+ this.popupid);
+        // ReactDom.unmountComponentAtNode(document.getElementById(this.popupid));
     }
     _reset() {
         this.show = false;
-        console.log(this);
+        // console.log(this);
         this.props.content.title = "";
         this.props.content.body = "";
+        this.props.destroy();
     }
     _show() {
         console.log(this.popupid);
         let popupContainer = document.getElementById(this.popupid);
-        console.log(popupContainer);
+        // console.log(popupContainer);
         this.coverdiv = popupContainer.getElementsByClassName('xu-cover')[0];
         this.popupdiv = popupContainer.getElementsByClassName('xu-popup')[0];
         this.coverdiv.setAttribute('style', 'display:block');

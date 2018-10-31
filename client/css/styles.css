@@ -110,3 +110,10 @@ div.rightbar {
 div.rightbar .aspan {
     cursor: pointer;
 }
+
+.form_login {
+    padding: 2em;
+}
+.form_login p {
+    padding-bottom: 1em;
+}

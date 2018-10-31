@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
+import $ from 'jquery';
 
 import Home from './components/home';
 import Category from './components/category';
@@ -65,7 +66,22 @@ class Index extends Component{
         const routeItems = cate.slice(1).map((cate)=>
             <RouteItem key={cate.id} path={cate.toLink} pathName={cate.name}/>
         );
-        const popProp = {title:'登陆', body: '<h1>登陆</h1><p>用户名:<input type="text" id="name" name="name"/></p><p>密码 :<input type="password" id="pwd" name="pwd"/></p>'};
+        const popProp = {title:'登陆', body: '<form class="form_login xu-grid"><p><label class="xu-grid-2">用户名:</label><input type="text" id="name" name="name"/></p><p><label class="xu-grid-2">密码:</label><input type="password" id="pwd" name="pwd"/></p><p><input id="btn_login" type="button" value="登陆" /></p><form>'};
+        const popUpInit = ()=>{
+            console.log('popUp init method now');
+            $('body').off('click','input#btn_login');
+            $('#btn_login').on('click',()=>{
+                let name = $('#name').val();
+                let pwd = $('#pwd').val();
+                console.log('btn_login click method now');
+                console.log(name);
+                console.log(pwd);
+            });
+        };
+        const popUpDestroy = ()=>{
+            console.log('popUp destroy method now');
+            $('body').off('click','input#btn_login');
+        };
         return (
             <Router>
                 <div className="index xu-grid">
@@ -82,7 +98,7 @@ class Index extends Component{
                     </div>
                     <div className="rightbar xu-grid-1">
                         <span className="aspan" onClick={this.openLoginWin.bind(this)}>登陆/注册</span>
-                        <Popup show={this.state.showLogin} content={popProp} />
+                        <Popup show={this.state.showLogin} content={popProp} init={popUpInit} destroy={popUpDestroy}/>
                     </div>
                 </div>
             </Router>
