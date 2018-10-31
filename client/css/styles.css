@@ -101,3 +101,8 @@ div.prod_info p:nth-child(3) {
 div.prod_info p:nth-child(4) {
     font-size: 0.8em;
 }
+
+div.rightbar {
+    position: absolute;
+    margin-left: 83%;
+}

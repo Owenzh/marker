@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 import Home from './components/home';
 import Category from './components/category';
 import Product from './components/product';
+import Popup from './components/popup';
 
 const CateItem = ({text,toLink,selectedClass}) => (
     <NavLink exact replace to={toLink} activeClassName={selectedClass}>{text}</NavLink> //add replace atrr to hash history cannot push state; it is ignored
@@ -15,7 +16,7 @@ const RouteItem = ({key,path,pathName}) => (
 class Index extends Component{
     constructor(props) {
         super(props);
-        this.state = {category_map: null}
+        this.state = {category_map: null,showLogin:false}
     }
     componentWillMount() {
         let category = [{
@@ -49,6 +50,9 @@ class Index extends Component{
         }, () => {
             // console.log('set category already.');
         });
+    }
+    openLoginWin(){
+        this.setState({showLogin:true});
     } 
     render(){
         let cate = this.state.category_map;
@@ -61,6 +65,7 @@ class Index extends Component{
         const routeItems = cate.slice(1).map((cate)=>
             <RouteItem key={cate.id} path={cate.toLink} pathName={cate.name}/>
         );
+        const popProp = {title:'登陆', body: 'This is win body.'};
         return (
             <Router>
                 <div className="index xu-grid">
@@ -74,6 +79,10 @@ class Index extends Component{
                             {routeItems}
                             <Route exact path="/product/:prodId" component={Product}/>
                         </Switch>
+                    </div>
+                    <div className="rightbar xu-grid-1">
+                        <span onClick={this.openLoginWin.bind(this)}>登陆/注册</span>
+                        <Popup show={this.state.showLogin} content={popProp} />
                     </div>
                 </div>
             </Router>
