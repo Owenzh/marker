@@ -81,7 +81,7 @@ class Index extends Component{
                         </Switch>
                     </div>
                     <div className="rightbar xu-grid-1">
-                        <span onClick={this.openLoginWin.bind(this)}>登陆/注册</span>
+                        <span className="aspan" onClick={this.openLoginWin.bind(this)}>登陆/注册</span>
                         <Popup show={this.state.showLogin} content={popProp} />
                     </div>
                 </div>

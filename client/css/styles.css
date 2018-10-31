@@ -106,3 +106,7 @@ div.rightbar {
     position: absolute;
     margin-left: 83%;
 }
+
+div.rightbar .aspan {
+    cursor: pointer;
+}
