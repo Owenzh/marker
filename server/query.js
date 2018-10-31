@@ -1,4 +1,4 @@
-const data = require('./data.js');
+const data = require('./sample_tables/products.js');
 
 const findProdInfoById = (id) => {
     let all = [].concat(data.hot, data.man, data.lady, data.children);

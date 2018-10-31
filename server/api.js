@@ -2,7 +2,7 @@ const Router = require('koa-router');
 // const fs = require('fs');
 // const path = require('path');
 
-const data = require('./data.js');
+const data = require('./sample_tables/products.js');
 const query = require('./query.js');
 
 var router = new Router({
