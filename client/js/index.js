@@ -17,7 +17,7 @@ const RouteItem = ({key,path,pathName}) => (
 class Index extends Component{
     constructor(props) {
         super(props);
-        this.state = {category_map: null,showLogin:false}
+        this.state = {category_map: null,showLogin:false,hasPopUp: true}
     }
     componentWillMount() {
         let category = [{
@@ -53,7 +53,7 @@ class Index extends Component{
         });
     }
     openLoginWin(){
-        this.setState({showLogin:true});
+        this.setState({showLogin:true,hasPopUp: true},()=>this.forceUpdate());
     } 
     render(){
         let cate = this.state.category_map;
@@ -69,18 +69,14 @@ class Index extends Component{
         const popProp = {title:'登陆', body: '<form class="form_login xu-grid"><p><label class="xu-grid-2">用户名:</label><input type="text" id="name" name="name"/></p><p><label class="xu-grid-2">密码:</label><input type="password" id="pwd" name="pwd"/></p><p><input id="btn_login" type="button" value="登陆" /></p><form>'};
         const popUpInit = ()=>{
             console.log('popUp init method now');
-            $('body').off('click','input#btn_login');
             $('#btn_login').on('click',()=>{
                 let name = $('#name').val();
                 let pwd = $('#pwd').val();
                 console.log('btn_login click method now');
-                console.log(name);
-                console.log(pwd);
             });
         };
         const popUpDestroy = ()=>{
-            console.log('popUp destroy method now');
-            $('body').off('click','input#btn_login');
+            this.setState({hasPopUp: false}, ()=>this.forceUpdate());
         };
         return (
             <Router>
@@ -98,7 +94,9 @@ class Index extends Component{
                     </div>
                     <div className="rightbar xu-grid-1">
                         <span className="aspan" onClick={this.openLoginWin.bind(this)}>登陆/注册</span>
-                        <Popup show={this.state.showLogin} content={popProp} init={popUpInit} destroy={popUpDestroy}/>
+                        {
+                            this.state.hasPopUp?<Popup show={this.state.showLogin} content={popProp} init={popUpInit} destroy={popUpDestroy}/>:null
+                        }
                     </div>
                 </div>
             </Router>
